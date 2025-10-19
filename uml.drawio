@@ -1,0 +1,43 @@
+<mxfile host="65bd71144e">
+    <diagram id="cems-uml" name="CEMS UML">
+        <mxGraphModel dx="1760" dy="2155" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="student" value="Student&#xa;--------------------&#xa;- id: String&#xa;- name: String&#xa;- email: String&#xa;- phoneNumber: String?&#xa;- enrollments: List&lt;Enrollment&gt;&#xa;--------------------&#xa;+ getGPA(): double&#xa;+ toString(): String" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2d2d2d;fontColor=#ffffff;strokeColor=#00bfff;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="-210" width="240" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="course" value="Course&#xa;--------------------&#xa;- courseCode: String&#xa;- courseName: String&#xa;- creditHours: int&#xa;- enrollments: List&lt;Enrollment&gt;&#xa;--------------------&#xa;+ getAverageGrade(): double&#xa;+ toString(): String" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2d2d2d;fontColor=#ffffff;strokeColor=#00bfff;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="60" width="240" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="enrollment" value="Enrollment&#xa;--------------------&#xa;- student: Student&#xa;- course: Course&#xa;- grade: Grade&#xa;--------------------&#xa;+ toString(): String" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2d2d2d;fontColor=#ffffff;strokeColor=#00bfff;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="390" width="240" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="grade" value="Enum Grade&#xa;--------------------&#xa;A (4.0)&#xa;B (3.0)&#xa;C (2.0)&#xa;D (1.0)&#xa;F (0.0)&#xa;None (-1.0)&#xa;--------------------&#xa;+ fromString(s: String): Grade?" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2d2d2d;fontColor=#ffffff;strokeColor=#00bfff;" parent="1" vertex="1">
+                    <mxGeometry x="820" y="370" width="200" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="controller" value="CEMSController&#xa;--------------------&#xa;- students: List&lt;Student&gt;&#xa;- courses: List&lt;Course&gt;&#xa;--------------------&#xa;+ addStudent()&#xa;+ addCourse()&#xa;+ enrollStudent()&#xa;+ assignGrade()&#xa;+ viewReports()&#xa;+ viewStatistics()&#xa;+ search()" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#2d2d2d;fontColor=#ffffff;strokeColor=#00bfff;" parent="1" vertex="1">
+                    <mxGeometry x="1010" y="60" width="260" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="student-enrollment" style="endArrow=block;html=1;strokeColor=#000000;rounded=0;" parent="1" source="student" target="enrollment" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="course-enrollment" style="endArrow=block;html=1;strokeColor=#000000;rounded=0;" parent="1" source="course" target="enrollment" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="enrollment-grade" style="endArrow=open;html=1;strokeColor=#000000;" parent="1" source="enrollment" target="grade" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="controller-student" style="endArrow=open;html=1;dashed=1;strokeColor=#000000;" parent="1" source="controller" target="student" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="controller-course" style="endArrow=open;html=1;dashed=1;strokeColor=#000000;" parent="1" source="controller" target="course" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="controller-enrollment" style="endArrow=open;html=1;dashed=1;strokeColor=#000000;" parent="1" source="controller" target="enrollment" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
